@@ -1,0 +1,93 @@
+body {
+    display: flex;
+    justify-content: center;
+    ;
+}
+button{
+    border-radius: 15px;
+}
+.container {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    width: 450px;
+    height: 550px;
+    border-radius: 6px;
+    border: solid;
+    background-color: rgb(31, 48, 63);
+    padding: 5px;
+
+}
+
+
+.screen-container {
+    display: flex;
+    gap: 7px;
+height: 60px;
+}
+
+.screen {
+    text-align: right;
+    border-radius: 6px;
+    border: solid;
+    background-color: aliceblue;
+    font-size: 50px;
+    font-weight: 700;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 5px;
+    flex: 1 0 60%;
+
+}
+
+.clear,
+.clearall {
+    flex: 1 0 1%;
+    font-size: 40px;
+    font-weight: 700;
+    font-family: 'Courier New', Courier, monospace;
+    color: aliceblue;
+    background: rgb(104, 47, 197);
+    width: min-content;
+}
+
+.key-pad {
+    display: flex;
+    flex: 1;
+}
+
+.numbers {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1 0 75%;
+}
+
+div.numbers * {
+    flex: 1 0 30%;
+    margin: 5px;
+    padding: 7px;
+    background: rgb(104, 47, 197);
+    color: aliceblue;
+    font-size: 50px;
+    font-weight: 700;
+    font-family: 'Courier New', Courier, monospace;
+
+}
+
+.operators {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1 0 25%;
+}
+
+div.operators * {
+    font-size: 50px;
+    font-weight: 700;
+    font-family: 'Courier New', Courier, monospace;
+    background: rgb(104, 47, 197);
+    color: aliceblue;
+    flex: 1;
+    margin: 5px;
+    padding: 7px;
+}
