@@ -2,7 +2,7 @@ let state = 'firstOperandStart';
 let secondOperand = '';
 let firstOperand = '';
 let currOperator = '';
-let point = false;
+let isDecimalPoint = false;
 const screenContent = document.querySelector('.screen');
 
 function add(a, b) { return a + b; }
@@ -26,8 +26,8 @@ function doOnNumberClick(e) {
 
         case 'firstOperand':
             if (screenContent.textContent.length < 10) {
-                if (keyId === '.' && point) break;
-                if (keyId === '.') point = true;
+                if (keyId === '.' && isDecimalPoint) break;
+                if (keyId === '.') isDecimalPoint = true;
                 screenContent.textContent += keyId;
                 firstOperand += keyId;
             }
@@ -36,12 +36,12 @@ function doOnNumberClick(e) {
             screenContent.textContent = keyId;
             secondOperand = keyId;
             state = 'secondOperand';
-            if (keyId === '.') point = true;
+            if (keyId === '.') isDecimalPoint = true;
             break;
         case 'secondOperand':
             if (screenContent.textContent.length < 10) {
-                if (keyId === '.' && point) break;
-                if (keyId === '.') point = true;
+                if (keyId === '.' && isDecimalPoint) break;
+                if (keyId === '.') isDecimalPoint = true;
                 screenContent.textContent += keyId;
                 secondOperand += keyId;
             }
@@ -51,7 +51,7 @@ function doOnNumberClick(e) {
             screenContent.textContent = keyId;
             firstOperand = keyId;
             state = 'firstOperand';
-            if (keyId === '.') point = true;
+            if (keyId === '.') isDecimalPoint = true;
 
     }
 }
@@ -64,6 +64,7 @@ function doOnOperatorClick(e) {
         case 'firstOperand': case 'firstOperandStart':
             currOperator = e.target.getAttribute('key-id');
             state = 'secondOperandStart';
+            isDecimalPoint = false;
             break;
         case 'secondOperand':
             doOnEqlsClick();
@@ -71,6 +72,9 @@ function doOnOperatorClick(e) {
         case 'result':
             state = 'secondOperandStart';
             firstOperand = screenContent.textContent;
+            currOperator = e.target.getAttribute('key-id');
+            break;
+        case 'secondOperandStart':
             currOperator = e.target.getAttribute('key-id');
 
     }
@@ -80,8 +84,11 @@ opKeys.forEach(key => key.addEventListener('click', doOnOperatorClick));
 //---------------
 function doOnEqlsClick() {
     if (state === 'secondOperand') {
-        screenContent.textContent = operate(currOperator, Number(firstOperand), Number(secondOperand));
+        let res= Math.round(operate(currOperator, Number(firstOperand), Number(secondOperand))*100000000)/100000000;
+        screenContent.textContent =((res+'').length<11)?res:'OutOfRange';
+        
         state = 'result';
+        isDecimalPoint = false;
     }
 }
 const eqlsKey = document.querySelector('button.eqls');
@@ -106,6 +113,10 @@ clearKey.addEventListener('click', doOnClearClick);
 function doOnAllClearClick() {
     screenContent.textContent = '0';
     state = 'firstOperandStart';
+    firstOperand = '';
+    secondOperand = '';
+    currOperator = '';
+    isDecimalPoint = false;
 
 }
 const clearAllKey = document.querySelector('.clearall');
