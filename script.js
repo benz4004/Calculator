@@ -84,9 +84,9 @@ opKeys.forEach(key => key.addEventListener('click', doOnOperatorClick));
 //---------------
 function doOnEqlsClick() {
     if (state === 'secondOperand') {
-        let res= Math.round(operate(currOperator, Number(firstOperand), Number(secondOperand))*100000000)/100000000;
-        screenContent.textContent =((res+'').length<11)?res:'OutOfRange';
-        
+        let res = Math.round(operate(currOperator, Number(firstOperand), Number(secondOperand)) * 100000000) / 100000000;
+        screenContent.textContent = ((res + '').length < 11) ? res : 'OutOfRange';
+
         state = 'result';
         isDecimalPoint = false;
     }
@@ -98,12 +98,18 @@ function doOnClearClick() {
     switch (state) {
         case 'firstOperand':
             screenContent.textContent = screenContent.textContent.split('').slice(0, -1).join('');
-            if (screenContent.textContent.length === 0) screenContent.textContent = '0';
+            if (screenContent.textContent.length === 0) {
+                screenContent.textContent = '0';
+                state='firstOperandStart'
+            }
             firstOperand = screenContent.textContent;
             break;
         case 'secondOperand':
             screenContent.textContent = screenContent.textContent.split('').slice(0, -1).join('');
-            if (screenContent.textContent.length === 0) screenContent.textContent = '0';
+            if (screenContent.textContent.length === 0) {
+                screenContent.textContent = '0';
+                state='secondOperandStart'
+            }
             secondOperand = screenContent.textContent;
     }
 }
