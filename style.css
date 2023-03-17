@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 body {
     display: flex;
     justify-content: center;
@@ -7,7 +9,7 @@ button{
     border-radius: 15px;
 }
 .container {
-    margin-top: 50px;
+    margin-top: 10px;
     display: flex;
     flex-direction: column;
     gap: 7px;
@@ -24,7 +26,7 @@ button{
 .screen-container {
     display: flex;
     gap: 7px;
-height: 60px;
+height: 100px;
 }
 
 .screen {
@@ -34,7 +36,7 @@ height: 60px;
     background-color: aliceblue;
     font-size: 50px;
     font-weight: 700;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Roboto', sans-serif;
     padding: 5px;
     flex: 1 0 60%;
 
@@ -45,7 +47,7 @@ height: 60px;
     flex: 1 0 1%;
     font-size: 40px;
     font-weight: 700;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Roboto', sans-serif;
     color: aliceblue;
     background: var(--main-color);
     width: min-content;
@@ -70,7 +72,7 @@ div.numbers * {
     color: aliceblue;
     font-size: 50px;
     font-weight: 700;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Roboto', sans-serif;
 
 }
 
@@ -84,7 +86,7 @@ div.numbers * {
 div.operators * {
     font-size: 50px;
     font-weight: 700;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Roboto', sans-serif;
     background: var(--main-color);
     color: aliceblue;
     flex: 1;
