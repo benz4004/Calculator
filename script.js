@@ -129,8 +129,8 @@ const clearAllKey = document.querySelector('.clearall');
 clearAllKey.addEventListener('click', doOnAllClearClick);
 //----------------
 document.querySelectorAll('button').forEach(btn => btn.addEventListener('mouseenter', function (e) {
-    document.querySelector(`button[key-id="${e.target.getAttribute('key-id')}"]`).setAttribute('style', 'background: #854848;')
+    document.querySelector(`button[key-id="${e.target.getAttribute('key-id')}"]`).setAttribute('style', 'background: magenta;')
 }));
 document.querySelectorAll('button').forEach(btn => btn.addEventListener('mouseleave', function (e) {
-    document.querySelector(`button[key-id="${e.target.getAttribute('key-id')}"]`).setAttribute('style', 'background: #682fc5;')
+    document.querySelector(`button[key-id="${e.target.getAttribute('key-id')}"]`).setAttribute('style', 'background: var(--main-color);')
 }));

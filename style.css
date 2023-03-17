@@ -1,7 +1,7 @@
 body {
     display: flex;
     justify-content: center;
-    ;
+    --main-color: black;
 }
 button{
     border-radius: 15px;
@@ -47,7 +47,7 @@ height: 60px;
     font-weight: 700;
     font-family: 'Courier New', Courier, monospace;
     color: aliceblue;
-    background: rgb(104, 47, 197);
+    background: var(--main-color);
     width: min-content;
 }
 
@@ -66,7 +66,7 @@ div.numbers * {
     flex: 1 0 30%;
     margin: 5px;
     padding: 7px;
-    background: rgb(104, 47, 197);
+    background:var(--main-color);
     color: aliceblue;
     font-size: 50px;
     font-weight: 700;
@@ -85,7 +85,7 @@ div.operators * {
     font-size: 50px;
     font-weight: 700;
     font-family: 'Courier New', Courier, monospace;
-    background: rgb(104, 47, 197);
+    background: var(--main-color);
     color: aliceblue;
     flex: 1;
     margin: 5px;
