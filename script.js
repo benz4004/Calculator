@@ -33,10 +33,12 @@ function doOnNumberClick(e) {
             }
             break;
         case 'secondOperandStart':
-            screenContent.textContent = keyId;
-            secondOperand = keyId;
-            state = 'secondOperand';
-            if (keyId === '.') isDecimalPoint = true;
+            if (keyId !== '0') {
+                screenContent.textContent = keyId;
+                secondOperand = keyId;
+                state = 'secondOperand';
+                if (keyId === '.') isDecimalPoint = true;
+            }
             break;
         case 'secondOperand':
             if (screenContent.textContent.length < 10) {
@@ -48,11 +50,12 @@ function doOnNumberClick(e) {
             break;
         case 'result':
         case 'firstOperandStart':
+            if (keyId !== '0') {
             screenContent.textContent = keyId;
             firstOperand = keyId;
             state = 'firstOperand';
             if (keyId === '.') isDecimalPoint = true;
-
+            }
     }
 }
 const numKeys = document.querySelectorAll('button.number');
@@ -100,7 +103,7 @@ function doOnClearClick() {
             screenContent.textContent = screenContent.textContent.split('').slice(0, -1).join('');
             if (screenContent.textContent.length === 0) {
                 screenContent.textContent = '0';
-                state='firstOperandStart'
+                state = 'firstOperandStart'
             }
             firstOperand = screenContent.textContent;
             break;
@@ -108,7 +111,7 @@ function doOnClearClick() {
             screenContent.textContent = screenContent.textContent.split('').slice(0, -1).join('');
             if (screenContent.textContent.length === 0) {
                 screenContent.textContent = '0';
-                state='secondOperandStart'
+                state = 'secondOperandStart'
             }
             secondOperand = screenContent.textContent;
     }
